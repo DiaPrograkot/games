@@ -120,6 +120,10 @@
 
           if (isCorrect) {
             target.classList.add("correct");
+            // Отключаю все кнопки после нажатия
+            target.parentElement.querySelectorAll("button").forEach((button) => {
+              button.disabled = true;
+            });
           } else {
             message.style.display = "block";
             target.parentElement.style.display = "none";
