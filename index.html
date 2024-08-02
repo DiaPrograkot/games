@@ -111,6 +111,8 @@
   <img src="https://cdn.pixabay.com/photo/2018/07/05/07/51/science-3517714_640.png" class="astronaut" alt="Astronaut"/>
 
   <script>
+    let correctAnswersCount = 0;
+
     document.querySelectorAll(".buttons").forEach((buttonsDiv) => {
       buttonsDiv.addEventListener("click", (event) => {
         const target = event.target;
@@ -120,10 +122,17 @@
 
           if (isCorrect) {
             target.classList.add("correct");
-            // Отключаю все кнопки после нажатия
+            correctAnswersCount++;
+            // Отключаем все кнопки в группе
             target.parentElement.querySelectorAll("button").forEach((button) => {
               button.disabled = true;
             });
+            // Проверяем, все ли вопросы правильно отвечены
+            if (correctAnswersCount === 4) {
+              setTimeout(() => {
+                alert("А ты хорошо знаешь кота, я ревную...");
+              }, 500);
+            }
           } else {
             message.style.display = "block";
             target.parentElement.style.display = "none";
