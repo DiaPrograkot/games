@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>У нас что викторина здесь?</title>
+  <style>
+    body {
+      background-image: url("https://starwalk.space/gallery/images/what-is-space/1920x1080.jpg");
+      background-size: cover; /* Обрезает изображение, чтобы покрыть весь элемент */
+      background-position: center; /* Центрирует изображение */
+      background-repeat: no-repeat; /* Не повторяет изображение */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f0f0;
+      position: relative; /* Добавлено для обеспечения позиционирования дочерних элементов */
+    }
+    h1 {
+      margin: 0;
+      margin-top: 20px;
+      color: white;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .correct {
+      background-color: green;
+      color: white;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 35px;
+      background-color: blueviolet;
+      color: white;
+      display: none;
+    }
+    .astronaut {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 350px; 
+      height: auto;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <h1>Сколько лет Мурке?</h1>
+  <div class="buttons">
+    <button data-answer="incorrect">28</button>
+    <button data-answer="incorrect">55</button>
+    <button data-answer="correct">13</button>
+  </div>
+  <div class="message">Не видать тебе кефира!</div>
+
+  <h1>Когда у Мурки по расписанию велоспидная прогулка? (по МСК)</h1>
+  <div class="buttons">
+    <button data-answer="incorrect">23</button>
+    <button data-answer="correct">01</button>
+    <button data-answer="incorrect">03</button>
+  </div>
+  <div class="message">Иди учись, дурочка!</div>
+
+  <h1>Кто такой Мурка на самом деле?</h1>
+  <div class="buttons">
+    <button data-answer="correct">Кот-инопланетянин</button>
+    <button data-answer="incorrect">Скуф</button>
+    <button data-answer="incorrect">Сергей Брин</button>
+  </div>
+  <div class="message">У меня на глупых девушек не встаёт.</div>
+
+  <h1>Выбери любимый ответ Мурки.</h1>
+  <div class="buttons">
+    <button data-answer="correct">Ок</button>
+    <button data-answer="incorrect">Вы все ИДИОТКИ</button>
+    <button data-answer="incorrect">Ты самый умный?..</button>
+      </div>
+  <div class="message">Такое не лечится.</div>
+
+  <img src="https://cdn.pixabay.com/photo/2018/07/05/07/51/science-3517714_640.png" class="astronaut" alt="Astronaut"/>
+
+  <script>
+    document.querySelectorAll(".buttons").forEach((buttonsDiv) => {
+      buttonsDiv.addEventListener("click", (event) => {
+        const target = event.target;
+        if (target.tagName === "BUTTON") {
+          const isCorrect = target.getAttribute("data-answer") === "correct";
+          const message = target.parentElement.nextElementSibling;
+
+          if (isCorrect) {
+            target.classList.add("correct");
+          } else {
+            message.style.display = "block";
+            target.parentElement.style.display = "none";
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
