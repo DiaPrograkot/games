@@ -19,20 +19,28 @@
       margin: 0;
       background-color: #f0f0f0;
       position: relative; /* Добавлено для обеспечения позиционирования дочерних элементов */
+      padding: 20px;
+      box-sizing: border-box;
     }
     h1 {
       margin: 0;
       margin-top: 20px;
       color: white;
+      text-align: center;
     }
     .buttons {
       margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     button {
       margin: 10px;
       padding: 10px 20px;
       font-size: 20px;
       cursor: pointer;
+      width: 100%; /* Кнопки занимают всю ширину родительского элемента */
+      max-width: 300px; /* Максимальная ширина кнопок */
     }
     .correct {
       background-color: green;
@@ -40,18 +48,30 @@
     }
     .message {
       margin-top: 20px;
-      font-size: 35px;
+      font-size: 20px; /* Уменьшен размер шрифта для лучшей адаптивности */
       background-color: blueviolet;
       color: white;
       display: none;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      max-width: 90%; /* Ограничение максимальной ширины сообщений */
     }
     .astronaut {
       position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 300px; 
+      bottom: 10px; /* Добавлено небольшое отступление от нижнего края */
+      right: 10px; /* Добавлено небольшое отступление от правого края */
+      width: 200px; /* Уменьшена ширина изображения для лучшей адаптивности */
       height: auto;
       z-index: 10;
+    }
+    @media (min-width: 600px) {
+      .buttons {
+        flex-direction: row; /* Кнопки в строку на более широких экранах */
+      }
+      button {
+        width: auto; /* Кнопки занимают автоматическую ширину на более широких экранах */
+      }
     }
   </style>
 </head>
@@ -85,7 +105,7 @@
     <button data-answer="correct">Ок</button>
     <button data-answer="incorrect">Вы все ИДИОТКИ</button>
     <button data-answer="incorrect">Ты самый умный?..</button>
-      </div>
+  </div>
   <div class="message">Такое не лечится.</div>
 
   <img src="https://cdn.pixabay.com/photo/2018/07/05/07/51/science-3517714_640.png" class="astronaut" alt="Astronaut"/>
@@ -94,7 +114,7 @@
     document.querySelectorAll(".buttons").forEach((buttonsDiv) => {
       buttonsDiv.addEventListener("click", (event) => {
         const target = event.target;
-        if (target.tagName === "BUTTON") {
+        if (target.tagName === "button") {
           const isCorrect = target.getAttribute("data-answer") === "correct";
           const message = target.parentElement.nextElementSibling;
 
