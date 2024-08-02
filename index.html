@@ -7,9 +7,9 @@
   <style>
     body {
       background-image: url("https://starwalk.space/gallery/images/what-is-space/1920x1080.jpg");
-      background-size: cover; /* Обрезает изображение, чтобы покрыть весь элемент */
-      background-position: center; /* Центрирует изображение */
-      background-repeat: no-repeat; /* Не повторяет изображение */
+      background-size: cover; //Обрезает изображение, чтобы покрыть весь элемент
+      background-position: center; //Центрирует изображение
+      background-repeat: no-repeat; //Не повторяет изображение
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -18,7 +18,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       background-color: #f0f0f0;
-      position: relative; /* Добавлено для обеспечения позиционирования дочерних элементов */
+      position: relative; //Для обеспечения позиционирования дочерних элементов
       padding: 20px;
       box-sizing: border-box;
     }
@@ -39,8 +39,8 @@
       padding: 10px 20px;
       font-size: 20px;
       cursor: pointer;
-      width: 100%; /* Кнопки занимают всю ширину родительского элемента */
-      max-width: 300px; /* Максимальная ширина кнопок */
+      width: 100%; //Кнопки занимают всю ширину родительского элемента
+      max-width: 300px; //Максимальная ширина кнопок
     }
     .correct {
       background-color: green;
@@ -48,29 +48,29 @@
     }
     .message {
       margin-top: 20px;
-      font-size: 20px; /* Уменьшен размер шрифта для лучшей адаптивности */
+      font-size: 20px;
       background-color: blueviolet;
       color: white;
       display: none;
       padding: 10px;
       text-align: center;
       border-radius: 5px;
-      max-width: 90%; /* Ограничение максимальной ширины сообщений */
+      max-width: 90%; // Ограничение максимальной ширины сообщений
     }
     .astronaut {
       position: absolute;
-      bottom: 10px; /* Добавлено небольшое отступление от нижнего края */
-      right: 10px; /* Добавлено небольшое отступление от правого края */
-      width: 200px; /* Уменьшена ширина изображения для лучшей адаптивности */
+      bottom: 10px;
+      right: 10px;
+      width: 200px;
       height: auto;
       z-index: 10;
     }
     @media (min-width: 600px) {
       .buttons {
-        flex-direction: row; /* Кнопки в строку на более широких экранах */
+        flex-direction: row; //Кнопки в строку на более широких экранах
       }
       button {
-        width: auto; /* Кнопки занимают автоматическую ширину на более широких экранах */
+        width: auto; //Кнопки занимают автоматическую ширину на более широких экранах
       }
     }
   </style>
